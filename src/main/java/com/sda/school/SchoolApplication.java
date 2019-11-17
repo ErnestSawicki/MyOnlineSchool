@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.sda.school.model.Grade;
 import com.sda.school.model.Person;
 import com.sda.school.model.Student;
-import sun.security.util.Pem;
+import com.sda.school.model.StudentClass;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -32,10 +32,14 @@ public class SchoolApplication {
 
         em.getTransaction().commit();
 
+
         String query = "SELECT s FROM Student s WHERE s.person.firstName =:firstName AND s.person.lastName=:lastName";
 
         List<Student> people = em.createQuery(query)
                 .setParameter("lastName", "Kowalski").setParameter("firstName", "Jan").getResultList();
         System.out.println(people);
+
+        StudentClass sdClass = new StudentClass();
+
     }
 }
