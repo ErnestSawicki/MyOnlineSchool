@@ -8,6 +8,7 @@ import javax.persistence.Table;
 @Entity(name="Subject")
 public class Subject extends EntityBase {
 
+    
     @Column(name ="name", nullable = false)
     private String name;
 
