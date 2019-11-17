@@ -37,5 +37,10 @@ public class SchoolApplication {
         List<Student> people = em.createQuery(query)
                 .setParameter("lastName", "Kowalski").setParameter("firstName", "Jan").getResultList();
         System.out.println(people);
+
+        System.out.println("BABA MA KOGUTA");
     }
+
+
+
 }
