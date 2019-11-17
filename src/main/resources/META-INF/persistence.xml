@@ -10,8 +10,12 @@
         <class>com.sda.school.model.Grade</class>
         <class>com.sda.school.model.SchoolSubjects</class>
         <class>com.sda.school.model.Subject</class>
+<<<<<<< HEAD
 
         <class>com.sda.school.model.Principal</class>
+=======
+        <class>com.sda.school.model.Adress</class>
+>>>>>>> d2557b62276fb931f58c60a05262fec155f915fb
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
@@ -19,7 +23,11 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/sda_school2"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
+<<<<<<< HEAD
             <property name="javax.persistence.jdbc.password" value="Abazabaziom1"/>
+=======
+            <property name="javax.persistence.jdbc.password" value="root"/>
+>>>>>>> d2557b62276fb931f58c60a05262fec155f915fb
         </properties>
     </persistence-unit>
 </persistence>
