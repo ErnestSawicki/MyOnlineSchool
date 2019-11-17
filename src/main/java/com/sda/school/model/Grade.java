@@ -6,6 +6,11 @@ import javax.persistence.*;
 @Entity(name = "Grade")
 public class Grade extends EntityBase{
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL )
+    @JoinColumn(name = "subject_id", nullable = false)
+    private SchoolSubjects subject;
+
+
     @Column(name = "value")
     private Integer value;
 
@@ -17,10 +22,13 @@ public class Grade extends EntityBase{
         //For ORM
     }
 
-    public Grade(Integer value, Student student) {
+    public Grade(Integer value, Student student, SchoolSubjects subject) {
         this.value = value;
         this.student = student;
+        this.subject=subject;
     }
+
+
 
     public Integer getValue() {
         return value;
