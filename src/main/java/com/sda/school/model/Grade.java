@@ -1,21 +1,23 @@
-package school.model;
+package com.sda.school.model;
 
 import javax.persistence.*;
 
-@Entity(name= "Grade")
 @Table(name = "grade")
-public class Grade extends EntityBase {
+@Entity(name = "Grade")
+public class Grade extends EntityBase{
 
     @Column(name = "value")
     private Integer value;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name =  "student_id", nullable = false)
+    @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
-    public Grade(){}
+    public Grade(){
+        //For ORM
+    }
 
-    public Grade(Integer value, Student student){
+    public Grade(Integer value, Student student) {
         this.value = value;
         this.student = student;
     }

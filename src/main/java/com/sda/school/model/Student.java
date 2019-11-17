@@ -1,4 +1,4 @@
-package school.model;
+package com.sda.school.model;
 
 import javax.persistence.*;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public class Student extends EntityBase {
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "person_id")
     private Person person;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
@@ -20,6 +20,10 @@ public class Student extends EntityBase {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public List<Grade> getGrades() {
+        return grades;
     }
 
     public void setGrades(List<Grade> grades) {

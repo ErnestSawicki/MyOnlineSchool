@@ -1,10 +1,11 @@
-package school.model;
+package com.sda.school.model;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @MappedSuperclass
-public class EntityBase {
+public class EntityBase  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, updatable = false, nullable = false)
@@ -18,6 +19,9 @@ public class EntityBase {
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
 
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public Long getId() {
         return id;
@@ -36,12 +40,13 @@ public class EntityBase {
     }
 
     @PreUpdate
-    protected void preUpdate(){
+    protected void preUpdate() {
         this.updatedAt = new Date();
     }
 
     @PrePersist
-    protected void prePersist(){
+    protected void prePersist() {
         this.createdAt = new Date();
     }
+
 }

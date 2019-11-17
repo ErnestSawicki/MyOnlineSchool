@@ -1,19 +1,20 @@
-package school;
+package com.sda.school;
 
-import school.model.Grade;
-import school.model.Person;
-import school.model.Student;
+import com.google.common.collect.Lists;
+import com.sda.school.model.Grade;
+import com.sda.school.model.Person;
+import com.sda.school.model.Student;
+import sun.security.util.Pem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SchoolApplication {
-    public static void main(String[] args) {
 
+
+    public static void main(String[] args){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.sda.school_project");
         EntityManager em = emf.createEntityManager();
 
@@ -25,25 +26,16 @@ public class SchoolApplication {
 
         Student s = new Student();
         s.setPerson(p);
-/*        List<Grade> grades = new ArrayList<Grade>();
-        grades.add(new Grade(5,s));
-        grades.add(new Grade(3,s));*/
+        s.setGrades(Lists.newArrayList(new Grade(5, s), new Grade(3, s)));
 
-        s.setGrades(Arrays.asList(new Grade(5,s), new Grade(3,s)));
+        em.persist(s);
 
-
-//        em.persist(s);
         em.getTransaction().commit();
 
+        String query = "SELECT s FROM Student s WHERE s.person.firstName =:firstName AND s.person.lastName=:lastName";
 
-        List<Student> people = em.createQuery("SELECT s FROM Student s WHERE s.person.firstName = :parametr")
-                .setParameter("parametr", "Jan")
-                .getResultList();
-
+        List<Student> people = em.createQuery(query)
+                .setParameter("lastName", "Kowalski").setParameter("firstName", "Jan").getResultList();
         System.out.println(people);
-
-
-
-
     }
 }
