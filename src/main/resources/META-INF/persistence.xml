@@ -20,7 +20,6 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/sda_school"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="Abazabaziom1"/>
             <property name="javax.persistence.jdbc.password" value="root"/>
         </properties>
     </persistence-unit>
