@@ -20,6 +20,11 @@ public class Person extends EntityBase {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "adress_id")
+    private Adress adress;
+
+
     public String getFirstName() {
         return firstName;
     }
