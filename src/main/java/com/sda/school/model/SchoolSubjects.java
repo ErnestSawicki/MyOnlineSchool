@@ -8,8 +8,23 @@ import javax.persistence.*;
 public class SchoolSubjects extends EntityBase {
 
     @Column(name = "subjects_name")
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private Subjects subject;
+
+    public SchoolSubjects(){}
+
+    public SchoolSubjects(Subjects subject){
+        this.subject=subject;
+    }
+
+
+    public Subjects getSubject() {
+        return subject;
+    }
 
 
 
+    public void setSubject(Subjects subject) {
+        this.subject = subject;
+    }
 }
