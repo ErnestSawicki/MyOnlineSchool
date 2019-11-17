@@ -10,5 +10,5 @@ public class Principal extends EntityBase {
     @JoinColumn(name="person_id")
     private Person person;
 
-
+    
 }
